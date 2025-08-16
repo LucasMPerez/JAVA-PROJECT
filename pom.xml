@@ -30,6 +30,9 @@
 	<properties>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+		<junit-jupiter.version>5.10.2</junit-jupiter.version>
 	</properties>
 
 	<dependencies>
@@ -55,6 +58,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -64,11 +73,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- JPA Persistence Dependencies -->
+		<!-- Base de datos en memoria para pruebas -->
 		<dependency>
-			<groupId>io.github.flbulgarelli</groupId>
-			<artifactId>jpa-extras</artifactId>
-			<version>1.0.0-rc1</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -103,6 +112,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering> <!-- Desactiva filtrado -->
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -111,6 +126,7 @@
 				<configuration>
 					<source>17</source>
 					<target>17</target>
+					<encoding>UTF-8</encoding>
 					<annotationProcessorPaths>
 						<!--<path>
 							<groupId>org.projectlombok</groupId>
@@ -118,6 +134,11 @@
 						</path>-->
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.3</version> <!-- Versión actualizada -->
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

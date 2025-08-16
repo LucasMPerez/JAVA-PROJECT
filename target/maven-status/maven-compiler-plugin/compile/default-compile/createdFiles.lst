@@ -1,0 +1,13 @@
+com\example\demo\DemoApplication.class
+com\example\demo\Models\Repository\PersonaRepository.class
+com\example\demo\Models\Repository\MateriaRepository.class
+com\example\demo\Models\Domain\main.class
+com\example\demo\Models\Domain\Materia.class
+com\example\demo\Models\Repository\CarreraRepository.class
+com\example\demo\Models\Domain\Alumno.class
+com\example\demo\Models\Repository\DocenteRepository.class
+com\example\demo\Models\Domain\Carrera.class
+com\example\demo\Models\Domain\Docente.class
+com\example\demo\Models\Repository\AlumnoRepository.class
+com\example\demo\Service\DataLoader.class
+com\example\demo\Models\Domain\Persona.class

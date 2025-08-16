@@ -2,9 +2,15 @@ package com.example.demo.Models.Domain;
 
 import java.time.LocalDate;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
+@SpringBootApplication
+@EntityScan("com.example.demo.model")
+@EnableJpaRepositories("com.example.demo.Models.Repository")
 public class main {
     private static EntityManagerFactory emf;
 
